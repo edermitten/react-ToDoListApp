@@ -1,6 +1,6 @@
 import './App.css';
 import  freecodecamplogo from './images/logo.png'
-import TaskForm from './components/TaskForm'
+import ToDoList from './components/ToDoList';
 
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
         <img src={freecodecamplogo} className='freecodecamp-logo' />
       </div>
       <div className='todolist-main'>
-        <h1>To Do List</h1>
-        <TaskForm/>
+        <h1>My List</h1>
+        <ToDoList/>
       </div>
 
     </div>
