@@ -8,6 +8,9 @@ function ToDoList(){
 
     const [tasks, setTask] = useState([]);
 
+    /**
+     * Add Task
+     */
     const addTask = task => {
 
       if (task.text.trim()){
@@ -15,7 +18,31 @@ function ToDoList(){
         const updatedTasks = [task, ...tasks];
         setTask(updatedTasks);
       }
-    }
+    };
+
+    /**
+     * Delete Task
+     */
+
+    const deleteTask = id =>{
+      const updatedTasks = tasks.filter(task => task.id !== id);
+      setTask(updatedTasks)
+    };
+
+    /**
+     * Complete task
+     */
+
+    const completeTask = id => {
+      const updatedTasks = tasks.map(task => {
+        if (task.id === id) {
+          task.completed = !task.completed;
+        }
+        return task;
+      });
+      setTask(updatedTasks);
+    };
+
 
     return (
       <>
@@ -28,6 +55,8 @@ function ToDoList(){
               id = {task.id}
               text={task.text}
               completed = {task.completed}
+              completetask = {completeTask}
+              deletetask = {deleteTask}
             />
           )
         }
